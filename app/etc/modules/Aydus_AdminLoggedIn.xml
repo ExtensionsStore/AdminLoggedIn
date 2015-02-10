@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * AdminLoggedIn module
+ *
+ * @category   Aydus
+ * @package    Aydus_AdminLoggedIn
+ * @author     Aydus Consulting <davidt@aydus.com>
+ */
+-->
+<config>
+    <modules>
+        <Aydus_AdminLoggedIn>
+             <active>true</active>
+             <codePool>community</codePool>
+        </Aydus_AdminLoggedIn>
+    </modules>
+</config>

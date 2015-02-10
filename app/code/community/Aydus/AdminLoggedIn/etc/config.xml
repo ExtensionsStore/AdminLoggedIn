@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * AdminLoggedIn config
+ *
+ * @category   Aydus
+ * @package    Aydus_AdminLoggedIn
+ * @author     Aydus Consulting <davidt@aydus.com>
+ */
+-->
+<config>
+    <modules>
+        <Aydus_AdminLoggedIn>
+            <version>1.0.0</version>
+        </Aydus_AdminLoggedIn>
+    </modules>
+	<admin>
+	    <routers>
+	        <adminhtml>
+	            <args>
+	                <modules>
+	                    <Aydus_AdminLoggedIn before="Mage_Adminhtml">Aydus_AdminLoggedIn_Adminhtml</Aydus_AdminLoggedIn>
+	                </modules>
+	            </args>
+	        </adminhtml>
+	    </routers>
+	</admin>    
+    <adminhtml>
+        <events>
+            <admin_session_user_login_success>
+                <observers>
+                    <registeradmin>
+                        <class>aydus_adminloggedin/observer</class>
+                        <method>setAdminIsLoggedIn</method>
+                    </registeradmin>
+                </observers>
+            </admin_session_user_login_success>
+			<controller_action_predispatch>
+				<observers>
+					<logadmin>
+                        <class>aydus_adminloggedin/observer</class>
+						<method>setAdminIsLoggedIn</method>
+					</logadmin>
+				</observers>
+			</controller_action_predispatch>
+        </events>
+    </adminhtml>    
+    <crontab>
+        <jobs>
+            <adminloggedin_logout_admin>
+                <schedule>
+                    <cron_expr>*/5 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>aydus_adminloggedin/observer::logoutAdmin</model>
+                </run>
+            </adminloggedin_logout_admin>
+        </jobs>
+    </crontab>    
+    <global>    
+        <helpers>
+            <aydus_adminloggedin>
+                <class>Aydus_AdminLoggedIn_Helper</class>
+            </aydus_adminloggedin>
+            <adminloggedin>
+                <class>Aydus_AdminLoggedIn_Helper</class>
+            </adminloggedin>            
+        </helpers>    
+        <models>
+            <aydus_adminloggedin>
+                <class>Aydus_AdminLoggedIn_Model</class>
+            </aydus_adminloggedin>
+        </models>
+        <resources>
+            <aydus_adminloggedin_setup>
+                <setup>
+                    <module>Aydus_AdminLoggedIn</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </aydus_adminloggedin_setup>        
+        </resources>                
+    </global>         
+</config>
