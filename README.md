@@ -1,15 +1,17 @@
 Admin Logged In
 ===============
 
-Helper module to check if the admin is logged. May be useful if you 
-have the need to check for the admin user on the front end.
+Helper module to check if you're logged in as admin on the front end.
+Maybe be useful for debugging purposes.
 
 Description
 -----------
 On the front end, some times you have the need to check whether the 
-admin is logged. For example, for debugging purposes. This helper module 
-provides a boolean that you can add to front end code to test for the 
-presence of the admin.
+admin is logged in. For example, you want certain front end features 
+to be available only to the admin. Or for debugging purposes on a live 
+site, you want to print out a bug. This module provides a helper method 
+that you can add to front end code to test whether an admin is viewing 
+the page.
 
 
 How to use
