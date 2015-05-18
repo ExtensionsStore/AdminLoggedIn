@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Cms Auth helper
+ * AdminLoggedIn helper
  *
  * @category   Aydus
  * @package    Aydus_AdminLoggedIn
