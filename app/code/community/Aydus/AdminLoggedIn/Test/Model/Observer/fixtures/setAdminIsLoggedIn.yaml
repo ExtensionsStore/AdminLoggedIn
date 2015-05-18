@@ -1,0 +1,7 @@
+tables:
+  admin/user:
+    - user_id: 1
+      firstname: David
+      lastname: Tay
+      username: davidt@aydus.com
+      email: davidt@aydus.com

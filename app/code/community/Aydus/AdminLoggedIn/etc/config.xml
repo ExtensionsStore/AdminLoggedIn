@@ -5,26 +5,33 @@
  *
  * @category   Aydus
  * @package    Aydus_AdminLoggedIn
- * @author     Aydus Consulting <davidt@aydus.com>
+ * @author     Aydus <davidt@aydus.com>
  */
 -->
 <config>
     <modules>
         <Aydus_AdminLoggedIn>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </Aydus_AdminLoggedIn>
     </modules>
-	<admin>
-	    <routers>
-	        <adminhtml>
-	            <args>
-	                <modules>
-	                    <Aydus_AdminLoggedIn before="Mage_Adminhtml">Aydus_AdminLoggedIn_Adminhtml</Aydus_AdminLoggedIn>
-	                </modules>
-	            </args>
-	        </adminhtml>
-	    </routers>
-	</admin>    
+    <phpunit>
+        <suite>
+            <modules>
+                <Aydus_AdminLoggedIn />
+            </modules>
+        </suite>
+    </phpunit>      
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Aydus_AdminLoggedIn before="Mage_Adminhtml">Aydus_AdminLoggedIn_Adminhtml</Aydus_AdminLoggedIn>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>    
     <adminhtml>
         <events>
             <admin_session_user_login_success>
@@ -35,14 +42,14 @@
                     </registeradmin>
                 </observers>
             </admin_session_user_login_success>
-			<controller_action_predispatch>
-				<observers>
-					<logadmin>
+            <controller_action_predispatch>
+                <observers>
+                    <logadmin>
                         <class>aydus_adminloggedin/observer</class>
-						<method>setAdminIsLoggedIn</method>
-					</logadmin>
-				</observers>
-			</controller_action_predispatch>
+                        <method>setAdminIsLoggedIn</method>
+                    </logadmin>
+                </observers>
+            </controller_action_predispatch>
         </events>
     </adminhtml>    
     <crontab>

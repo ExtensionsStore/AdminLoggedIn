@@ -5,7 +5,7 @@
  *
  * @category   Aydus
  * @package    Aydus_AdminLoggedIn
- * @author     Aydus Consulting <davidt@aydus.com>
+ * @author     Aydus <davidt@aydus.com>
  */
 
 class Aydus_AdminLoggedIn_Model_Observer  
@@ -35,10 +35,11 @@ class Aydus_AdminLoggedIn_Model_Observer
             $now = date('Y-m-d H:i:s');
             $prefix = Mage::getConfig()->getTablePrefix();
             $table = $prefix.'aydus_adminloggedin_adminlogin';
-            $write->query("REPLACE INTO $table (admin_user_id,ip_address,loggedin,updated_at) VALUES($adminUserId,'$ipAddress',1,'$now')");            
+            $write->query("REPLACE INTO $table (admin_user_id,ip_address,loggedin,updated_at) VALUES($adminUserId,'$ipAddress',1,'$now')");  
+            $observer->setAdminIsLoggedIn(true);
         }
         
-        return $this;
+        return $observer;
     }    
     
     /**

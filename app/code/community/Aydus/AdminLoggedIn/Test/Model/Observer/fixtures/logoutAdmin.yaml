@@ -1,0 +1,15 @@
+tables:
+  admin/user:
+    - user_id: 1
+      firstname: David
+      lastname: Tay
+      username: davidt@aydus.com
+      email: davidt@aydus.com
+  cron/schedule:
+      schedule_id: 1
+      job_code: adminloggedin_logout_admin
+      status: pending
+      created_at: 
+      scheduled_at: 
+      executed_at:
+      finished_at:
