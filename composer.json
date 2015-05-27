@@ -1,5 +1,5 @@
 {
-    "name": "aydus/AdminLoggedIn",
+    "name": "aydus/adminloggedin",
     "license": "GPL-3.0",
     "type": "magento-module",
     "description": "Helper module to check if you're logged in as admin on the front end. Maybe be useful for debugging purposes.",
